@@ -1,13 +1,18 @@
 import './style.css'
 
-
-
 let tbody = document.getElementById("tbody")
 
-
+type Status = {
+    id: number;
+    name: string;
+    email: string;
+    profile: string;
+    status: string;
+    role: string;
+}
 
 // fetch function
-fetch("http://localhost:3000/user")
+fetch("http://localhost:4000/user")
     .then(res => res.json())
     .then(json => {
         json.map(data => {
@@ -17,7 +22,7 @@ fetch("http://localhost:3000/user")
     })
 
 // create td
-function td_fun({ profile, name, email, status, role}){
+function td_fun({ profile, name, email, status, role }) {
     let td = document.createElement('tr');
     td.innerHTML = `
     <td class="px-6 py-4 whitespace-nowrap">
